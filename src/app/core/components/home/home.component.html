@@ -1,0 +1,147 @@
+<div class="contendor-formulario" *ngIf="!datosEnviados">
+  <div class="container-sm">
+    <div class="card">
+      <div class="container">
+        <label class="style-titulo">Green Leaves</label>
+        <img class="imagen-hoja"
+          src="https://images.vexels.com/media/users/3/207136/isolated/lists/dc6980a67acd5e2d4a13bc446e9e3378-icono-grande-de-hoja-verde.png"
+          alt="Imagen">
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="formDatosPeronales">
+    <div class="container-sm">
+      <!-- nombre -->
+      <div class="row espacio-row">
+        <div class="col-2">
+          <div class="label-titulo">
+            <label class="requerido" for="nombre">Nombre:</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-nombre">
+            <input id="nombre" class="input-field" type="text" formControlName="nombreUser">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="alert-nombre">
+            <span *ngIf="formUtils.validarControl(formDatosPeronales,'nombreUser')"
+              class="validation-message">{{formUtils.obtenerMensajeValidacion(formDatosPeronales,'nombreUser')}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- email -->
+      <div class="row espacio-row">
+        <div class="col-2">
+          <div class="label-titulo">
+            <label class="requerido" for="email">E-mail:</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-email">
+            <input id="email" class="input-field" type="email" formControlName="emailUser">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="alert-email">
+            <span *ngIf="formUtils.validarControl(formDatosPeronales,'emailUser')"
+              class="validation-message">{{formUtils.obtenerMensajeValidacion(formDatosPeronales,'emailUser')}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- telefono -->
+      <div class="row espacio-row">
+        <div class="col-2">
+          <div class="label-titulo">
+            <label class="requerido" for="telefono">Teléfono:</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-telefono">
+            <input id="telefono" class="input-field" type="text" formControlName="telefonoUser">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="alert-telefono">
+            <span *ngIf="formUtils.validarControl(formDatosPeronales,'telefonoUser')"
+              class="validation-message">{{formUtils.obtenerMensajeValidacion(formDatosPeronales,'telefonoUser')}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- fecha -->
+      <div class="row espacio-row">
+        <div class="col-2">
+          <div class="label-titulo">
+            <label class="requerido" for="fecha">Fecha:</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-fecha">
+            <input class="input-size-fecha" matInput [matDatepicker]="picker" formControlName="fechaUser">
+            <mat-datepicker #picker></mat-datepicker>
+            <button class="btn-calendario" mat-raised-button (click)="picker.open()"><img class="img-calendario"
+                src="https://image.flaticon.com/icons/png/128/42/42446.png" alt="calendario" /></button>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="alert-fecha">
+            <span *ngIf="formUtils.validarControl(formDatosPeronales,'fechaUser')"
+              class="validation-message">{{formUtils.obtenerMensajeValidacion(formDatosPeronales,'fechaUser')}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- ciudadEstado -->
+      <div class="row espacio-row">
+        <div class="col-2">
+          <div class="label-titulo">
+            <label class="requerido" for="ciudadEstado">Ciudad y Estado:</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-ciudadEstado">
+            <input type="text" formControlName="ciudadEstadoUser" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let ciudad of ciudadesFiltradas | async" [value]="ciudad">
+                {{ciudad}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="alert-ciudadEstado">
+            <span *ngIf="formUtils.validarControl(formDatosPeronales,'ciudadEstadoUser')"
+              class="validation-message">{{formUtils.obtenerMensajeValidacion(formDatosPeronales,'ciudadEstadoUser')}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- btn Enviar -->
+      <div class="row espacio-row">
+        <div class="col-2"></div>
+        <div class="col-6 contenedor-boton">
+          <button class="style-boton-enviar" type="submit" [disabled]="formDatosPeronales.invalid"
+            (click)="enviarDatosPersonales()">Enviar</button>
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #modalConfirmacion>
+  <div class="modal-header">
+    <h2 class="modal-title">Registro Exitoso</h2>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <label>Se ha enviado un E-mail a su cuenta de correo <b>{{correoUsuario}}</b>, gracias por
+            registrarse!</label>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <button class="style-boton-enviar" (click)="aceptarModal()">Aceptar</button>
+    </div>
+  </div>
+</ng-template>

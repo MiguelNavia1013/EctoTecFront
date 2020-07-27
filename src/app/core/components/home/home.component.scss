@@ -1,0 +1,152 @@
+.contendor-formulario {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .container-sm {
+    margin-bottom: 1.5em;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  span {
+    color: #ff0000;
+    font-weight: bold;
+  }
+
+  .input-size-fecha {
+    width: 50%;
+  }
+
+  .contenedor-boton {
+    text-align: end;
+  }
+
+  .espacio-row {
+    margin: 1em;
+
+    .label-titulo {
+      font-weight: bold;
+    }
+  }
+
+  .input-fecha {
+    .img-calendario {
+      height: auto;
+      width: 1em;
+    }
+  }
+
+  .card {
+    background-color: #06e107;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 40px 40px 40px 40px;
+    transition: 0.3s;
+    width: 100%;
+  }
+
+  .card:hover {
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  .container {
+    padding: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .imagen-hoja {
+      width: 10%;
+      height: auto;
+    }
+
+    .style-titulo {
+      font-size: 4em;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .style-titulo {
+        font-size: 2em;
+        color: #ffffff;
+        font-weight: bold;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .style-titulo {
+        font-size: 2em;
+        color: #ffffff;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .style-boton-enviar {
+    padding: .5em 2em;
+    font-size: 1em;
+    font-weight: bold;
+    border: 5px solid #000000;
+    border-radius: 130px 130px 130px 130px;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    transition: 0.3s;
+  }
+
+  .style-boton-enviar:hover {
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  .btn-calendario {
+    margin-left: 1em;
+  }
+
+}
+
+.modal-header {
+  background-color: #000000;
+  padding: .5em 1em;
+
+  .modal-title {
+    font-size: 1.2em;
+    color: white;
+    margin: 0;
+  }
+
+  .close {
+    color: white;
+    outline: none;
+  }
+}
+
+.modal-body {
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+
+    .style-boton-enviar {
+      padding: .5em 2em;
+      font-size: 1em;
+      font-weight: bold;
+      border: 5px solid #000000;
+      border-radius: 130px 130px 130px 130px;
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      transition: 0.3s;
+    }
+
+    .style-boton-enviar:hover {
+      box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    }
+  }
+}
